@@ -1,12 +1,11 @@
 {
-  "name": "your-project-name",
+  "name": "Exercise1",
   "version": "1.0.0",
-  "description": "Your project description",
-  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
+  },
   "scripts": {
     "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
   }
 }
