@@ -9,6 +9,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Import functions from script.js
+const { findSummation, uppercaseFirstandLast, findAverageAndMedian, find4Digits } = require('./public/script');
+
 // Routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
