@@ -1,14 +1,17 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3010;
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.post('/findSummation', (req, res) => {
