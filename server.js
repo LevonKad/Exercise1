@@ -1,29 +1,39 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-const port = 5001;
+const port = 3010;
 
-// Middleware to parse the body of the request
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Serve the HTML form
+
+// Routes
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
-// Handle form submission
-app.post('/submit', (req, res) => {
-    const name = req.body.name;
-    const phone = req.body.phone;
+app.post('/findSummation', (req, res) => {
+    const { number } = req.body;
+    const result = findSummation(parseInt(number));
+    res.send(`Summation result: ${result}`);
+});
 
-    // Regular expression to validate phone number format ddd-ddd-dddd
-    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+app.post('/uppercaseFirstandLast', (req, res) => {
+    const { word } = req.body;
+    const result = uppercaseFirstandLast(word);
+    res.send(`Modified string: ${result}`);
+});
 
-    if (phoneRegex.test(phone)) {
-        res.send(`Hello, ${name}. The phone number ${phone} is valid.`);
-    } else {
-        res.send(`Hello, ${name}. The phone number ${phone} is invalid. Please enter in the format ddd-ddd-dddd.`);
-    }
+app.post('/findAverageAndMedian', (req, res) => {
+    const { array } = req.body;
+    const arr = array.split(',').map(Number);
+    const result = findAverageAndMedian(arr);
+    res.send(`Average: ${result.average}, Median: ${result.median}`);
+});
+
+app.post('/find4Digits', (req, res) => {
+    const { str } = req.body;
+    const result = find4Digits(str);
+    res.send(`First four digits: ${result}`);
 });
 
 app.listen(port, () => {
