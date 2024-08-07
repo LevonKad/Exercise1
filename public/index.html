@@ -2,19 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Number Form</title>
+    <title>Exercise 1</title>
+    <style>
+        .small-text {
+            font-size: medium; /* Increased font size */
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
-    <h1>Submit Your Name and Phone Number</h1>
-    <form action="/submit" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        <label for="phone">Phone Number (ddd-ddd-dddd):</label>
-        <input type="text" id="phone" name="phone" required>
-        <br><br>
-        <input type="submit" value="Submit">
+    <h1>Exercise 1</h1>
+
+    <h2>Find Summation <span class="small-text"> (enter any number)</span></h2>
+    <form action="/findSummation" method="post">
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <h2>Uppercase First and Last<span class="small-text"> (enter any string)</span></h2>
+    <form action="/uppercaseFirstandLast" method="post">
+        <label for="word">String:</label>
+        <input type="text" id="word" name="word" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <h2>Find Average and Median<span class="small-text"> (enter array of numbers example: 1,2,3,4,.....  )</span></h2>
+    <form action="/findAverageAndMedian" method="post">
+        <label for="array">Array (comma-separated numbers):</label>
+        <input type="text" id="array" name="array" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <h2>Find First Four Digits<span class="small-text"> (enter a string of numbers separated by space)</span></h2>
+    <form action="/find4Digits" method="post">
+        <label for="str">String of numbers:</label>
+        <input type="text" id="str" name="str" required>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
